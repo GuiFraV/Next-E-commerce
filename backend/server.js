@@ -15,10 +15,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.json({ message: "Bienvenue sur l'API de l'application e-commerce" });
+});
+
 // Routes
 app.use("/api/products", require("./routes/products"));
-app.use("/api/users", require("./routes/users"));
-app.use("/api/orders", require("./routes/orders"));
+// TODO: Décommenter et implémenter les routes utilisateurs
+// app.use('/api/users', require('./routes/users'));
+// TODO: Décommenter et implémenter les routes des commandes
+// app.use('/api/orders', require('./routes/orders'));
 
 const PORT = process.env.PORT || 5000;
 
